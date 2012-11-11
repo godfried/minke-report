@@ -1,0 +1,21 @@
+\subsection{Android}
+The Android component of the system was implemented with the Android 4's design principles in mind. 
+This means that the ActionBar has taken over the role traditionally occupied by the menu in previous versions of Android. 
+Furthermore, emphasis has shifted away from Activity-centric to Fragment-oriented applications which allows for faster,
+ more dynamic and interactive applications. With this in mind it was decided to
+ implement the main section of our application as a single activity, called
+ HomeActivity, which hosts different tabs for each main view (Product Scanner,
+ Product Browser and Shopping List Browser) of our application.
+ Each view would then be implemented as a series of Fragments which would move in and out of
+ their respective tabs depending on the state of the view. The other views in
+ our application (Graph View and Directions View) will be implemented as
+ seperate activities which can be launched from our HomeActivity. Unfortunately
+ much of this required functionality is not compatible with Android versions
+ older than Honeycomb, therefore we needed a workaround. Fortunately this was
+ available in the form of ActionBar Sherlock and androidv4, libraries which
+ provide us with Android 4 functionality on older versions of Android.  
+\input{and-ps-impl}
+\input{and-pb-impl}
+\input{and-sl-impl}
+\input{and-gv-impl}
+\input{and-dv-impl}

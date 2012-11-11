@@ -1,0 +1,50 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=5cm, minimum width=8cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-2.5){};
+    \end{pgfonlayer}
+    \node (scanner) [block]
+        {
+            \textbf{Product Scanner}
+        };
+        \node (scan) [block, below of= scanner]
+        {
+            \textbf{Scan View}
+        };
+
+        \node (store) [block,below left=0.5cm and -0.2cm of scan]
+        {
+            \textbf{Store Creator}
+        };
+        \node (product) [block,below right=0.5cm and -0.2cm of scan]
+        {
+            \textbf{Product Creator}
+        };
+        \node (browse) [inblock, below right=3cm and -1cm of scan]
+        {
+            \textbf{Product Browser}
+        };   
+         \node (db) [exblock, below left=3cm and -1cm of scan]
+        {
+            \textbf{Datastore}
+        }; 
+     \path [line] (scan) -- (store);
+     \path [line] (store) -- (scan);
+     \path [line] (scan) -- (product);
+     \path [line] (scan) -- (browse);
+     \path [line] (scan) -- (db);
+     \path [line] (product) -- (browse);
+      \path [line] (product) -- (db);
+      \path [line] (db) -- (product);
+      \path [line] (db) -- (store);
+      \path [line] (db) -- (scan);
+      \path [line] (store) -- (db);
+ \end{tikzpicture}
+  \caption{The Product Scanner.}
+ \end{figure}
+\end{center}

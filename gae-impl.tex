@@ -1,0 +1,32 @@
+\subsection{GAE}
+In order to understand how the system will function it is important to get an idea of how and what data will be stored.
+Our entities within the Datastore are the following:
+\begin{description}
+\item [ProductCategory] Three nested categories associated with a product, e.g. Coffee Beans, Coffee, Consumables.
+\item [Brand] Brand associated with a product, e.g. Jacobs.
+\item[Product] A specific product, e.g. 500g Frisco.
+\item [City] A city or town, e.g. Stellenbosch, Western Cape, South Africa.
+\item [CityLocation] A GPS location together with its closest city.
+\item [Store] A store franchise, e.g. Spar.
+\item [Branch] A branch of a Store, e.g. Eikestad Woolworths.
+\item [BranchProduct] The entity associated with a product at a specific branch.
+\item [DatePrice] The price associated with a BranchProduct on a particular Date.
+\end{description}
+Location coordinates will be stored using a convenience class called GPSCoords.
+A clearer picture of the system is given in Figure 12.
+\input{entity-diag}
+The entities all have their own Data Access Objects (DAOs) which allow for querying, get and put operations. The DAOs are 
+static objects which provide a simple interface for interacting with the Objectify-Appengine Datastore. They are all created when the system is loaded. \\
+Each of the services used by the GWT front-end has an implementation on the GAE back-end. These are:
+\begin{description}
+\item[ClassService] Registers entities with Objectify. Was also used to add mock data to the Datastore.
+\item[BranchProductService] Retrieves the following:
+\begin{itemize}
+\item BranchProducts which match a ProductCategory and/or a City or a Product.
+\item Branches which stock a set of Products.
+\item BranchProducts's price histories.
+\end{itemize}
+\item[ProductService] Retrieves all Products from the Datastore.
+\item[ProductCategoryService] Retrieves all ProductCategories from the Datastore.
+\item[LocationService] Retrieves all cities from the Datastore.
+\end{description}

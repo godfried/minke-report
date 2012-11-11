@@ -1,0 +1,108 @@
+\begin{center}
+\begin{figure}[H]
+\begin{tikzpicture}[node distance=4cm]
+    \node (bp) [entity, rectangle split, rectangle split parts=2]
+        {
+            \textbf{BranchProduct}\\
+            \nodepart{second}ID (PK)\\
+            ProductID (FK)\\
+            BranchID (FK)\\
+            DatePriceID (FK)\\
+        };
+         \node (dp) [entity, rectangle split, rectangle split parts=2, right=1.5cm of bp]
+        {
+            \textbf{DatePrice} \\
+            \nodepart{second}ID (PK)\\
+			  BranchProductID (FK)\\
+			  Date (Date)\\
+			  Price (Integer)\\
+        };    
+         \node (branch) [entity, rectangle split, rectangle split parts=2, below of= dp]
+        {
+            \textbf{Branch} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+			StoreID (FK)\\
+			CityLocationID (FK)\\
+        };
+        \node (product) [entity, rectangle split, rectangle split parts=2, left=1.5cm of bp]
+        {
+            \textbf{Product} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+			      BrandID (FK) \\
+			      ProductCategoryID (FK)\\
+			      Measurement (String)\\
+        };
+        \node (brand) [entity, rectangle split, rectangle split parts=2, below right=1.5cm and 1.5cm of product]
+        {
+            \textbf{Brand} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+        };
+        \node (store) [entity, rectangle split, rectangle split parts=2, below of=brand ]
+        {
+            \textbf{Store} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+        };
+
+        \node (loc) [entity, rectangle split, rectangle split parts=2, below of= branch]
+        {
+            \textbf{CityLocation} \\
+            \nodepart{second}ID (PK)\\
+            CityID (FK)\\
+            Latitude\\
+            Longitude\\
+        };
+        \node (pc) [entity, rectangle split, rectangle split parts=2, below of= product]
+        {
+            \textbf{ProductCategory} \\
+            \nodepart{second}ID (PK)\\
+            ProductID (FK)\\
+            CategoryID(FK)\\
+        };
+        \node (category) [entity, rectangle split, rectangle split parts=2, below of= pc]
+        {
+            \textbf{Category} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+            ProductCategoryID (FK)\\
+        };
+         \node (city) [entity, rectangle split, rectangle split parts=2, below of= loc]
+        {
+            \textbf{City} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+            ProvinceID (FK)\\
+    		    Latitude\\
+            Longitude\\
+    	};
+    	\node (province) [entity, rectangle split, rectangle split parts=2, left=1.5cm of city]
+        {
+            \textbf{Province} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+            CountryID (FK)\\
+    	};
+    	\node (country) [entity, rectangle split, rectangle split parts=2, left=1.5cm of province]
+        {
+            \textbf{Country} \\
+            \nodepart{second}ID (PK)\\
+            Name (String)\\
+    	};
+     \path[->] (bp) edge node[above] {$1 \ldots *$} (dp);
+     \path[->] (bp) edge node[above] {$1 \ldots *$} (product);
+     \path[->] (bp) edge node[above, rotate=-45] {$* \ldots 1$} (branch);
+	 \path[->] (product) edge node[above, rotate=-90] {$1 \ldots *$} (pc);
+	 \path[->] (product) edge node[above, rotate=-45] {$* \ldots 1$} (brand);
+	 \path[->] (branch) edge node[above, rotate=45] {$1 \ldots *$} (store);
+	 \path[->] (branch) edge node[above, rotate=-90] {$* \ldots 1$} (loc);
+     \path[->] (loc) edge node[above, rotate=-90] {$* \ldots 1$} (city);
+    \path[->] (city) edge node[above] {$1 \ldots *$} (province);
+  \path[->] (province) edge node[above] {$1 \ldots *$} (country);
+    \path[->] (category) edge node[above, rotate=-90] {$* \ldots 1$} (pc);
+ \end{tikzpicture}
+ \caption{Class Diagram of Entities used.}
+ \end{figure}
+\end{center}

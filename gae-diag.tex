@@ -1,0 +1,30 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=3cm, minimum width=8cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-1.5){};
+    \end{pgfonlayer}
+        \node (GAE) [block]
+        {
+            \textbf{GAE \\
+            Datastore back-end}
+        };
+        \node (nodey) [text width=4cm, below of= GAE]{};
+        \node (product) [block, left of= nodey]
+        {
+            \textbf{Product Entities}
+        };
+        \node (location) [block, right of= nodey]
+        {
+            \textbf{Location Entities}
+        };
+     \path [line] (product) -- (location);
+     \path [line] (location) -- (product);
+ \end{tikzpicture}
+  \caption{GAE Datastore back-end.}
+ \end{figure}
+\end{center}

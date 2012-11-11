@@ -1,0 +1,50 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=6.5cm, minimum width=7.5cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+    \node [small] (small) at (0,-3.5){};
+    \end{pgfonlayer}
+    \node (product) [block]
+        {
+            \textbf{Product Browser}
+        };
+        \node (search) [block, below=0.5cm of product]
+        {
+            \textbf{Search}
+        };
+        \node (viewer) [block, below left=0.5cm and -0.7cm of search]
+        {
+            \textbf{Viewer}
+        };
+         \node (db) [exblock, above left=0.5cm and 0.8cm of viewer]
+        {
+            \textbf{Datastore}
+        };
+        \node (info) [block, below=0.5cm of viewer]
+        {
+            \textbf{Info Popup}
+        };
+        \node (chooser) [block, below right=0.5cm and -0.7cm of search]
+        {
+            \textbf{Graph Chooser}
+        };
+        \node (graph) [inblock, right=0.8cm of chooser]
+        {
+            \textbf{Graph Viewer}
+        };
+    
+     \path [line] (search) -- (db);
+    \path [line] (db) -- (viewer);
+     \path [line] (viewer) -- (info);
+     \path [line] (viewer) -- (chooser);
+     \path [line] (chooser) -- (db);
+    \path [line] (db) -- (chooser);
+     \path [line] (chooser) -- (graph);
+ \end{tikzpicture}
+  \caption{The Product Browser.}
+ \end{figure}
+\end{center}

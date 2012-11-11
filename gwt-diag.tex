@@ -1,0 +1,43 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=5cm, minimum width=10cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=3cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-2.5){};
+    \end{pgfonlayer}
+    \node (GWT) [block]
+        {
+            \textbf{GWT}\\
+            Web front-end
+        };
+        \node (shopping) [block, below=0.5cm of GWT]
+        {
+            \textbf{Shopping List Browser}
+        };
+        \node (product) [block, left of= shopping]
+        {
+            \textbf{Product Browser}
+        };
+         \node (admin) [block, right of= shopping]
+        {
+            \textbf{Admin Viewer}
+        };
+        \node (directions) [block, below=0.5cm of product]
+        {
+            \textbf{Directions Display}
+        };
+        \node (graph) [block, below=0.5cm of shopping]
+        {
+            \textbf{Product Graph Viewer}
+        };
+    
+     \path [line] (product) -- (graph);
+     \path [line] (shopping) -- (directions);
+     \path [line] (shopping) -- (graph);
+ \end{tikzpicture}
+  \caption{High-level view of GWT Web front-end.}
+ \end{figure}
+\end{center}

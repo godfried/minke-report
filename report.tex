@@ -1,0 +1,41 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{shapes,shadows,arrows, positioning}
+\bibliographystyle{plain}
+\tikzstyle{entity}=[rectangle, draw=black, rounded corners, fill=blue!40, drop shadow, anchor=north, text=white,text width=10em, minimum width=2.7cm]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=7em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{inblock} = [rectangle, draw, fill=green!30, 
+    text width=7em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{exblock} = [rectangle, draw, fill=red!30, 
+    text width=7em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{border1} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=60mm, minimum width=12cm,outer sep=0pt]
+\tikzstyle{border2} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=8cm, minimum width=10cm,outer sep=0pt]            
+\tikzstyle{border3} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=10cm, minimum width=13cm,outer sep=0pt]  
+\author{P. J. G. Jordaan \\
+15660796 \\
+Department of Computer Science \\
+University of Stellenbosch}
+\title{Minke: Crowdsourced Price-tracking}
+\date{}
+\begin{document}
+\maketitle
+\pagebreak
+\input{intro}
+\input{desc}
+\input{solutions}
+\input{design}
+\input{impl}
+\input{conc}
+\bibliography{report}
+
+\end{document}

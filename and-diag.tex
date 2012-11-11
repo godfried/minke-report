@@ -1,0 +1,44 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=6cm, minimum width=10cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=3cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-3){};
+    \end{pgfonlayer}
+    \node (Android) [block]
+        {
+            \textbf{Android}\\
+            Mobile front-end
+        };
+        \node (scanner) [block, below=0.7cm of Android]
+        {
+            \textbf{Product Scanner}
+        };
+        \node (product) [block, left of= scanner]
+        {
+            \textbf{Product Browser}
+        };
+        \node (shopping) [block, right of= scanner]
+        {
+            \textbf{Shopping List Browser}
+        };
+        \node (directions) [block, below of= product]
+        {
+            \textbf{Directions Display}
+        };
+        \node (graph) [block, below of= shopping]
+        {
+            \textbf{Product Graph Viewer}
+        };
+     \path [line] (scanner) -- (product);   
+     \path [line] (product) -- (graph);
+      \path [line] (product) -- (directions);
+     \path [line] (shopping) -- (directions);
+     \path [line] (shopping) -- (graph);
+ \end{tikzpicture}
+  \caption{High-level view of Android Mobile front-end.}
+ \end{figure}
+\end{center}

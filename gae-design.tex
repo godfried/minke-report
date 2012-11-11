@@ -1,0 +1,16 @@
+\subsection{GAE}
+
+The Datastore back-end will store data about products as well as the locations the products were scanned at. 
+Objectify-Appengine~\cite{ofy} will be used to provide a convenience layer between the Plain Old Java Objects (POJOs) used in our GWT system and the GAE Datastore API. This was due to the following reasons:
+\begin{itemize}
+\item You can persist, retrieve, delete, and query your own typed objects.
+\item It allows all native Datastore features (batch operations, queries, entity groups, asynchronous operations, and partial indexes).
+\item It provides type-safe key and query classes using generics.
+\item Easy-to-use query interface.
+\item Fast start-up.
+\item Supports caching of data for fast read performance.
+\item Use with GWT with no need for Data Transfer Objects (DTOs).
+\item No external dependencies, only need GAE SDK.
+\end{itemize}
+GWT client access to the Datastore will be done via Remote Procedure Calls (RPCs) which will asynchronously update the client's data. Android access will be done via HTTP requests with JSON used to send data. 
+\input{gae-diag}

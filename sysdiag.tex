@@ -1,0 +1,39 @@
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=5cm, minimum width=8cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-2.5){};
+    \end{pgfonlayer}
+    \node (minke) [block]
+        {
+            \textbf{Minke}\\
+            Crowdsourced Price-tracker
+        };
+        \node (GAE) [block, below of= minke]
+        {
+            \textbf{GAE}\\
+            Datastore back-end
+        };
+    \node (GWT) [block, below left= 0.5cm and -0.3cm of GAE]
+        {
+            \textbf{GWT}\\
+            Web front-end
+        };
+        \node (android) [block,below right= 0.5cm and -0.3cm of GAE]
+        {
+            \textbf{Android}\\
+            Mobile front-end
+        };
+    
+     \path [line] (GAE) -- (GWT);
+    \path [line] (GWT) -- (GAE);
+     \path [line] (GAE) -- (android);
+     \path [line] (android) -- (GAE);
+ \end{tikzpicture}
+  \caption{High-level view of the Minke System.}
+ \end{figure}
+\end{center}

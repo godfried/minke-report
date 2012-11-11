@@ -1,0 +1,37 @@
+\subsubsection{Graph Viewer}
+
+The Graph Viewer will function in the same fashion as the GWT Graph Viewer. AChartEngine~\cite{achartengine} will be used  instead of the GWT Visualisation API.
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=3cm, minimum width=5cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-3.5){};
+    \end{pgfonlayer}
+      \node (nodex) [text width=4cm] {};
+    \node (shop) [inblock, left of =nodex]
+        {
+            \textbf{Shopping List Browser}
+        };
+        \node (product) [inblock, right of= nodex]
+        {
+            \textbf{Product Browser}
+        };
+         \node(graph) [block, below of= nodex]
+        {
+            \textbf{Graph Viewer}
+        };
+        \node (viewer) [block, below of= graph]
+        {
+            \textbf{Graph Display}
+        };
+     \path [line] (product) -- (graph);
+     \path [line] (shop) -- (graph);
+     \path [line] (graph) -- (viewer);
+ \end{tikzpicture}
+  \caption{The Graph Viewer.}
+ \end{figure}
+\end{center}

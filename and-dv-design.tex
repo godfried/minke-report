@@ -1,0 +1,43 @@
+\subsubsection{Directions Viewer}
+
+The Directions Viewer will function in the same fashion as the GWT Directions Viewer. The library used for this will be the Google Maps API for Android~\cite{amaps}. Directions will be obtained from Google's Directions API via a HTTP request and using JSON to hold the data.
+\tikzstyle{small} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=3cm, minimum width=7cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [small] (small) at (0,-3.5){};
+    \end{pgfonlayer}
+    \node (nodex) [text width=4cm] {};
+    \node (shop) [inblock, left of =nodex]
+        {
+            \textbf{Shopping List Browser}
+        };
+        \node (product) [inblock, right of= nodex]
+        {
+            \textbf{Product Browser}
+        };
+        \node (viewer) [block, below of= nodex]
+        {
+            \textbf{Directions Viewer}
+        };
+        \node (nodey) [text width=4cm, below of= viewer]{};
+        \node (directions) [block, right of= nodey]
+        {
+            \textbf{Directions Display}
+        };
+        \node (map) [block, left of= nodey]
+        {
+            \textbf{Map Display}
+        };
+     \path [line] (product) -- (viewer);
+     \path [line] (shop) -- (viewer);
+     \path [line] (viewer) -- (map);
+     \path [line] (viewer) -- (directions);
+ \end{tikzpicture}
+  \caption{The Directions Viewer.}
+ \end{figure}
+\end{center}

@@ -1,0 +1,16 @@
+\subsubsection{Product Scanner}
+
+The Product Scanner will consist of the following components:
+
+\begin{description}
+\item[Scan View] This will be the actual Barcode Scanner. Before scanning a user is prompted to choose the store they are at. If their store is not
+available they are taken to the Store Creator. Otherwise BCS is loaded and scanning begins. The completed scan can have the following outcomes:
+\begin{description}
+  \item[Unsuccessful] User prompted to try again.
+  \item[Not Found] User taken to Product Creator.
+  \item[Found] User asked to update price and then taken to the Product Browser.
+\end{description}
+\item[Store Creator] This will allow the user to add a new store to the database. After this is done, a scan of a product begins.
+\item[Product Creator] This will allow the user to add a new product to the database. After this is done, they are taken to the Product Browser.
+\end{description} 
+\input{and-ps-diag}

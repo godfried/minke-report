@@ -1,0 +1,19 @@
+\subsection{Technology}
+
+There are various parts of the system where what technology we will use will play a major role in how our system will work. Our chosen technology for developing the web application is Google Web Toolkit (GWT)~\cite{gwt}. This is due to the fact that it works well with Google App Engine (GAE)~\cite{gae} and tt also allows the developer to write mostly native Java code without having to resort to JavaScript or too much HTML. This eliminates the need to learn a new language since the developer is already familiar with Java and has experience with GWT. \\
+GAE is a platform as a service (PaaS) cloud computing platform which allows users to develop and host applications in a Google data center. GAE provides amongst other services, a Datastore API which we will use to store our application's data which can then be accessed by both our mobile and our web applications. It also provides us with free hosting for our web application, which should be sufficient to fit to the needs of our application. The Datastore was chosen over Cloud SQL due to the billing which was introduced for Cloud SQL~\cite{cloud}. \\
+The mobile application is to be developed only for Android~\cite{android}, with minimum compatibility with Android 2.3 Gingerbread. This is done for a number of reasons:
+\begin{itemize}
+  \item Coding can be done mostly in Java.
+  \item By choosing Gingerbread as our minimum version, we accomodate upwards of 80\% of Android users.
+  \item The developer has some experience with Android development.
+\end{itemize}
+Our mobile application will interact with the Datastore via HTTP requests with JavaScript Object Notation (JSON) used to send data. The reasons for this choice are:
+\begin{itemize}
+  \item Google's Android Cloud to Device Messaging (C2DM) service has been deprecated.
+  \item Google Cloud Messaging (GCM) is still in an experimental stage.
+  \item It easy to parse and build JSON data, especially for entities in a database.
+  \item JSON offers lower overheads than other formats such as XML.
+\end{itemize}
+In terms of scanning products, there are two routes available to us: Optical Character Recognition (OCR) or Bar Code Scanning (BCS). OCR will work by having the user scan in a products entire price tag. This has the advantage that it will scan the price along with the product's identifier. However not all products have a price tag attached which does not make this an entirely viable option. Furthermore it seems that the only available open source implementation of OCR is Google's Tesseract OCR engine~\cite{tesseract}. Unfortunately this is written in C++ which makes it difficult to use with an Android app (which is coded in Java). It is however possible to use it within an Android app, via the Android NDK. \\
+Our other option, BCS, seems to work very well in Android with most recognition software making use thereof. Since nearly every product should have a bar code attached, this guarantees that customers will be able to scan their products. The drawback is that customers would have to fill in the price of the product after it is scanned, but with a good interface this should take no longer than a second or two. The best open source library available to do bar code scanning with is ZXing~\cite{zxing} which is responsible for the aforementioned Barcode Scanner. This provides integration with their Barcode Scanner or allows you to build your own. It seems clear that BCS is the way to go since it is far simpler to implement, will scan all products and it has an established working app.

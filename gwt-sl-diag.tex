@@ -1,0 +1,54 @@
+\tikzstyle{tiny} = [rectangle, fill=white!100, ultra thick, draw=black!80,
+            minimum height=6cm, minimum width=8cm,outer sep=0pt] 
+\begin{center}
+\begin{figure}[H]
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+\begin{tikzpicture}[node distance=2cm]
+\begin{pgfonlayer}{background}
+        \node [tiny] (tiny) at (0,-3){};
+    \end{pgfonlayer}
+    \node (shop) [block]
+        {
+            \textbf{Shopping List Browser}
+        };
+        \node (creator) [block, below of= shop]
+        {
+            \textbf{Shopping List Creator}
+        };
+        \node (nodex) [text width=4cm, below of= creator] {};
+
+        \node (viewer) [block, left of= nodex]
+        {
+            \textbf{Store Viewer}
+        };
+        \node (list) [block, right of= nodex]
+        {
+            \textbf{Shopping List Viewer}
+        };
+         \node (nodey) [text width=4cm, right of= list] {};
+        \node (nodeyy) [text width=4cm,above right of= nodey] {};
+         \node (db) [exblock, above right of= nodeyy]
+        {
+            \textbf{Datastore}
+        };
+        \node (nodey) [text width=4cm, below of= viewer] {};
+        \node (nodez) [text width=4cm, below of= list] {};
+        \node (map) [inblock, below of= nodey]
+        {
+            \textbf{Directions Viewer}
+        };
+        \node (graph) [inblock, below of= nodez]
+        {
+            \textbf{Graph Viewer}
+        };
+    
+     \path [line] (creator) -- (db);
+      \path [line] (db) -- (viewer);
+     \path [line] (viewer) -- (list);
+     \path [line] (viewer) -- (map);
+     \path [line] (list) -- (graph);
+ \end{tikzpicture}
+  \caption{The Shopping List Browser.}
+ \end{figure}
+\end{center}
