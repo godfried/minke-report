@@ -12,8 +12,19 @@ Furthermore, emphasis has shifted away from Activity-centric to Fragment-oriente
  seperate activities which can be launched from our HomeActivity. Unfortunately
  much of this required functionality is not compatible with Android versions
  older than Honeycomb, therefore we needed a workaround. Fortunately this was
- available in the form of ActionBar Sherlock and androidv4, libraries which
- provide us with Android 4 functionality on older versions of Android.  
+ available in the form of the ActionBar Sherlock and android support, libraries
+ which provide us with Android 4 functionality on older versions of Android.  \\
+ Our application, as mentioned previously mentioned, makes use of HTTP requests
+ and JSON to send and receive data with the server's datastore. However it would
+ be quite data intensive to require the application to request data everytime a
+ search is done. It was therefore decided to make use of a local database to
+ store the data as well, with the user being able to define how often to update
+ this data. Only the initial loading of data, updating of product prices and
+ usage of the Directions Viewer therefore explicitly require an active data
+ connection. Sqlite was chosen as the local database management system due to it
+ being integrated into the Android OS and having good support within the Android
+ SDK. db4o was considered at first since it would allow us to easily store and
+ retrieve entire objects, but it proved to be too slow and resource hungry.
 \input{and-ps-impl}
 \input{and-pb-impl}
 \input{and-sl-impl}

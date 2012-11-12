@@ -1,9 +1,10 @@
 \subsection{GWT}
 The GWT front-end has several central components which facilitate interaction between the subsystems described in Design.
-In the *.client package we have:
+These are:
 \begin{description}
-\item[WebSystem] The central system which:\begin{itemize}
-\item Controls how the system interacts with GAE,
+\item[WebSystem] The central system which:
+\begin{itemize}
+\item Controls how the system interacts with the GAE Server,
 \item Requests data for and loads data into the Graphical User Interface (GUI),
 \item Serves as the entry point for the system, and
 \item Binds the different components together.
@@ -18,24 +19,12 @@ In the *.client package we have:
 \item GeoService : Determines user location using a GWT implementation of HTML5's GeoLocation~\cite{geo} interface.
 \end{itemize}
  \item[SystemData] Stores data pulled from the Datastore.
-\end{description}
- In the *.client.gui.* package we have:
- \begin{description}
-  \item[WebPage] Holds the various GUI components. Facilitates interaction between GUI components.
+ \item[WebPage] The central GUI which holds the various components and
+ facilitates interaction between them.
   \item[ViewTree] Provides sidebar with shortcuts to each of the major components. 
-  \item[button.*] Contains custom image buttons.
-    \item[loader.Loader] A loader to be displayed when the system is busy.
-    \item[popup.FocusedPopupPanel] A general purpose PopupPanel which disables the background when shown.
-    \item[spinedit.SpinEdit] A SpinEdit (up and down button with an IntegerBox).
-    \item[table.TableView] A general purpose table display created using a FlexTable.
 \end{description}
- In the *.client.util package we have:
- \begin{description}
-  \item[CSSUtils] Used to inject custom css styles.
-  \item[GUIUtils] Provides static access to error dialogs and the loader.
-    \item[ImageUtils] Provides easy access to images.
-    \item[Utils] Provides some general methods needed by some of the GUI components.
-\end{description}
+Most of the actual layouts of GUI components was done in xml and then bound to
+classes with a UiBinder.
 \input{gwt-pb-impl}
 \input{gwt-sl-impl}
 \input{gwt-av-impl}

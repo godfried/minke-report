@@ -5,21 +5,24 @@ Our entities within the Datastore are the following:
 \item [ProductCategory] Three nested categories associated with a product, e.g. Coffee Beans, Coffee, Consumables.
 \item [Brand] Brand associated with a product, e.g. Jacobs.
 \item[Product] A specific product, e.g. 500g Frisco.
-\item [City] A city or town, e.g. Stellenbosch, Western Cape, South Africa.
+\item[Country] A country, e.g. South Africa.
+\item[Province] A province or state, e.g. Western Cape.
+\item [City] A city or town, e.g. Stellenbosch.
 \item [CityLocation] A GPS location together with its closest city.
 \item [Store] A store franchise, e.g. Spar.
 \item [Branch] A branch of a Store, e.g. Eikestad Woolworths.
 \item [BranchProduct] The entity associated with a product at a specific branch.
 \item [DatePrice] The price associated with a BranchProduct on a particular Date.
 \end{description}
-Location coordinates will be stored using a convenience class called GPSCoords.
 A clearer picture of the system is given in Figure 12.
 \input{entity-diag}
-The entities all have their own Data Access Objects (DAOs) which allow for querying, get and put operations. The DAOs are 
-static objects which provide a simple interface for interacting with the Objectify-Appengine Datastore. They are all created when the system is loaded. \\
+The entities all have their own Data Access Objects (DAOs) which allow for querying, 
+get and put operations. The DAOs are static objects which provide a simple interface for interacting with the
+Objectify-AppEngine Datastore. They are all created when the system is loaded.
 Each of the services used by the GWT front-end has an implementation on the GAE back-end. These are:
 \begin{description}
-\item[ClassService] Registers entities with Objectify. Was also used to add mock data to the Datastore.
+\item[ClassService] Registers entities with Objectify. Also fetches a
+particular class of entities, deletes or updates an entity for Admin Viewer.
 \item[BranchProductService] Retrieves the following:
 \begin{itemize}
 \item BranchProducts which match a ProductCategory and/or a City or a Product.
@@ -27,6 +30,7 @@ Each of the services used by the GWT front-end has an implementation on the GAE 
 \item BranchProducts's price histories.
 \end{itemize}
 \item[ProductService] Retrieves all Products from the Datastore.
-\item[ProductCategoryService] Retrieves all ProductCategories from the Datastore.
-\item[LocationService] Retrieves all cities from the Datastore.
+\item[CategoryService] Retrieves all Categories from the Datastore.
+\item[LocationService] Retrieves all cities, countries or provinces from the
+Datastore.
 \end{description}
