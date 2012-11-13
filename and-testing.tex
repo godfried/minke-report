@@ -1,0 +1,40 @@
+\subsection{Android}
+Testing of our mobile client code was done with unit tests (for testing data and
+logic), user testing (for testing the interface) and monkey tools (random
+force and instrumentation tests of the interface) .
+The unit tests were mainly done to ensure that some of the calculations and
+operations done on the Android application performed correctly and allowed
+us to see what would happen when the client was faced with unexpected input. We
+also made use of some of the InstrumentationTestCase subclasses to test our
+Activities and Fragments and see how they would react to various user actions.
+User testing was done by:
+\begin{itemize}
+\item entering extreme values into input areas to ensure that validation and
+  input handling was done correctly,
+\item repeatedly switching between activities and fragments as well as closing
+and opening the application itself to test how it handles sudden
+changes in state, and
+\item getting users to test the application itself and thereby find bugs or
+usability problems in the application.
+\end{itemize} 
+Monkey tools are some of the application testing tools bundled with the Android
+SDK. Specifically they are:
+\begin{description}
+  \item[monkeyrunner~\cite{runner}] monkeyrunner allows us to write Python
+  programs which externally controls an Android device. Using it, we were able
+  to install our application, run it, provide it with input, and store
+  screenshots of the running application.
+\item[Monkey~\cite{monkey}] This program runs on a device and generates
+pseudo-random input events like clicks, touches, and gestures, as well as
+ system events. Monkey was used to stress-test our application.
+\end{description}
+lint~\cite{lint} was used to do static analysis on our Android code. lint checks
+our project for
+\begin{quote}
+potential bugs and optimization improvements for correctness,
+security, performance, usability, accessibility, and
+internationalization.~\cite{lint}
+\end{quote} 
+Logcat~\cite{logcat} was invaluable as a debugging tool and provides numerous
+ways to filter and search through an application's logs logs.
+

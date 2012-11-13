@@ -1,0 +1,15 @@
+\subsection{GAE}
+The main testing of our server side code was done with unit tests. The tests
+mainly ensured that our queries to our database returned the expected values and
+that the operations we performed on these values had the expected results. GAE
+provides the following libraries to access its runtime APIs in a testing
+environment:
+\begin{itemize}
+  \item appengine-api.jar
+  \item appengine-api-labs.jar
+  \item appengine-api-stubs.jar
+  \item appengine-testing.jar
+\end{itemize}
+Using the LocalServiceTestHelper\~cite{gae-test} class we can then access its
+APIs locally and test whether the server provides the required functionality.
+Our principle tests here were to with the retrieving and storing data.
